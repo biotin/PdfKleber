@@ -1,4 +1,11 @@
-
+/**
+* Simple Java GUI Programm to join two pdf files in one. 
+* Used Swing, Itextpdf library and standart Filechooser.
+*
+* @author Biotin
+* 
+* @version 0.1
+*/
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -59,8 +66,11 @@ public class PdfKleber extends JPanel
         add(logScrollPane, BorderLayout.CENTER);
     }
 
-
-
+/**
+* Method for Action on clicking Button. 
+* Simple GUI Actions. Main Action in StickButton with File Input and Output Stream.
+*
+*/
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == openButton1) {
@@ -115,7 +125,12 @@ public class PdfKleber extends JPanel
             log.setCaretPosition(log.getDocument().getLength());
         }
     }
-
+/**
+* Programs Engine Method. 
+* Works with iTextPdf library.
+*
+*
+*/
     public static void doMerge(List<InputStream> list, OutputStream outputStream)
             throws DocumentException, IOException {
         Document document = new Document();
@@ -136,7 +151,11 @@ public class PdfKleber extends JPanel
         document.close();
         outputStream.close();
     }
-
+/**
+* Init method. 
+* GUI Parameter Initialisation.
+*
+*/
 
     private static void init() {
 
@@ -149,7 +168,10 @@ public class PdfKleber extends JPanel
         frame.pack();
         frame.setVisible(true);
     }
-
+/**
+* Main Method.
+* Thread with Runnable.
+*/
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(new Runnable() {
